@@ -5,4 +5,4 @@ Update ionic to the latest version:
 npm install ionic-angular@latest --save --save-exact
 
 Update ionic cli to latest:
-npm install -g ionic
+npm i -g ionic@latest

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, Platform } from 'ionic-angular';
 import { EditMemberPage } from '../edit-member/edit-member';
-import { ApisProvider } from '../../providers/apis/apis';
+//import { ApisProvider } from '../../providers/apis/apis';
 
 import { Sim } from '@ionic-native/sim';
 

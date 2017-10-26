@@ -14,7 +14,7 @@ export class EditMemberPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad EditMemberPage');
+    //console.log('ionViewDidLoad EditMemberPage');
   }
 
   onCancel(){
