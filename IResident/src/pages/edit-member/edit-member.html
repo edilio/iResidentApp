@@ -13,6 +13,74 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+
+    <ion-list inset>
+        <ion-list-header>
+          <p ion-text>{{ item.name }} Info</p>    
+        </ion-list-header>
+
+        <ion-item>
+          <ion-label><h4 style="font-weight: bold;">Name</h4></ion-label>
+          <ion-input [(ngModel)]="item.name"></ion-input>
+        </ion-item>
+
+        <ion-item *ngIf="item.type === 'Emergency' || item.infoType === 'members'">
+          <ion-label><h4 style="font-weight: bold;">Relation</h4></ion-label>
+          <ion-input [(ngModel)]="item.relation"></ion-input>
+        </ion-item>
+
+        <div *ngIf="item.infoType === 'contacts'">
+          <div *ngIf="item.type === 'Primary'">
+            <ion-item>
+              <ion-label><h4 style="font-weight: bold;">Address</h4></ion-label>
+              <ion-input [(ngModel)]="item.address"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label><h4 style="font-weight: bold;">City/Stae/Zip</h4></ion-label>
+              <ion-input [(ngModel)]="item.cityStateZip"></ion-input>
+            </ion-item>
+          </div>
+          <ion-item>
+            <ion-label><h4 style="font-weight: bold;">Contact Type</h4></ion-label>
+            <ion-input [(ngModel)]="item.type"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label><h4 style="font-weight: bold;">Email</h4></ion-label>
+            <ion-input [(ngModel)]="item.email"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label><h4 style="font-weight: bold;">Phone</h4></ion-label>
+            <ion-input [(ngModel)]="item.phone"></ion-input>
+          </ion-item>
+        </div>
+
+        <div *ngIf="item.infoType === 'members'">
+            <ion-item>
+              <ion-label><h4 style="font-weight: bold;">Birthday</h4></ion-label>
+              <ion-input [(ngModel)]="item.birthday"></ion-input>
+            </ion-item>
+  
+            <ion-item>
+              <ion-label><h4 style="font-weight: bold;">Race</h4></ion-label>
+              <ion-input [(ngModel)]="item.race"></ion-input>
+            </ion-item>
+  
+            <ion-item>
+              <ion-label><h4 style="font-weight: bold;">Ethnicity</h4></ion-label>
+              <ion-input [(ngModel)]="item.ethnicity"></ion-input>
+            </ion-item>
+  
+            <ion-item>
+              <ion-label><h4 style="font-weight: bold;">Preferred Language</h4></ion-label>
+              <ion-input [(ngModel)]="item.language"></ion-input>
+            </ion-item>
+
+          </div>
+
+      </ion-list>
 
 </ion-content>

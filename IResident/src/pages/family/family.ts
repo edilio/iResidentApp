@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, Platform } from 'ionic-angular';
 import { EditMemberPage } from '../edit-member/edit-member';
-//import { ApisProvider } from '../../providers/apis/apis';
+import { ApisProvider } from '../../providers/apis/apis';
 
 import { Sim } from '@ionic-native/sim';
 
@@ -12,9 +12,13 @@ import { Sim } from '@ionic-native/sim';
 export class FamilyPage {
 
   infoType: string = 'contacts';
+  contacts: any[] = this.data.data.contacts;
+  members: any[] = this.data.data.members;
+  resident: any = this.data.data.resident;
 
   constructor(
     public navCtrl: NavController,
+    public data: ApisProvider,
     private sim: Sim,
     public platform: Platform) {
 
@@ -36,12 +40,12 @@ export class FamilyPage {
   }
 
   openMember(isNew, item){
-    console.log('opening member ...');
+    item.infoType = this.infoType;
     this.navCtrl.push(EditMemberPage, { item: item });
   };
 
   openContact(isNew, item){
-    console.log('opening contact ...');
+    item.infoType = this.infoType;
     this.navCtrl.push(EditMemberPage, { item: item });
   };
 
