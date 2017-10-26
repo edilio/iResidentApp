@@ -1,0 +1,108 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Family</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-segment [(ngModel)]="infoType" padding>
+     <ion-segment-button value="contacts">
+       Contacts
+     </ion-segment-button>
+     <ion-segment-button value="members">
+       Members
+     </ion-segment-button>
+   </ion-segment>
+
+
+   <div [ngSwitch]="infoType" style="margin-top:-10px">
+
+     <div *ngSwitchCase="'contacts'">
+          <ion-card>
+            <ion-card-content>
+              <ion-item>
+                <ion-thumbnail item-start>
+                  <img src="assets/imgs/mgilson.jpg">
+                </ion-thumbnail>
+
+                <h2>Matt Gilson</h2>
+                <h3>9023 NW 145th St. Apt: 23</h3>
+                <h3>Miami, FL 33023</h3>
+              </ion-item>
+
+            </ion-card-content>
+          </ion-card>
+
+          <ion-list no-border>
+
+            <ion-list-header>
+              Contact Information
+              <button ion-button icon-only item-right (click)="openContact(true)" margin-right>
+                <ion-icon ion-text name="add-circle"></ion-icon>
+              </button>
+            </ion-list-header>
+
+            <ion-item>
+              <ion-icon name='contact' item-start></ion-icon>
+              <h2>Primary</h2>
+              <h3>Email: matt@gilsonsoftware.com</h3>
+              <h3>Cell: 234-345-6532</h3>
+              <button ion-button clear item-end (click)="openContact(false)">View</button>
+            </ion-item>
+
+            <ion-item>
+              <ion-icon name='contact' item-start></ion-icon>
+              <h2>Secondary</h2>
+              <h3>Email: matt@gmail.com</h3>
+              <h3>Phone: 232-342-6232</h3>
+              <button ion-button clear item-end (click)="openContact(false)">View</button>
+            </ion-item>
+
+            <ion-item>
+              <ion-icon name='contact' item-start></ion-icon>
+              <h2>Emergency</h2>
+              <h3>Name: Valeria Gilson</h3>
+              <h3>Relation: Spouse</h3>
+              <h3>Email: valeria@gilsonsoftware.com</h3>
+              <h3>Cell: 334-343-6432</h3>
+              <button ion-button clear item-end (click)="openContact(false)">View</button>
+            </ion-item>
+
+          </ion-list>
+
+    </div>
+
+    <div *ngSwitchCase="'members'">
+      <ion-list no-border>
+
+        <ion-list-header>
+          Family members
+          <button ion-button icon-only item-right (click)="openMember(true, {id: 0})" margin-right>
+            <ion-icon ion-text name="add-circle"></ion-icon>
+          </button>
+        </ion-list-header>
+
+        <button ion-item (click)="openMember(false, {id: 1})">
+          <h3>Name: <strong>Matt Gilson</strong></h3>
+          <h3>Relation: <strong>Head of Household</strong></h3>
+          <h3>Birthday: <strong>12/12/1960</strong> <span margin-left> Age: <strong>56</strong></span></h3>
+          <h3>Race: <strong>Caucasian</strong></h3>
+          <h3>Ethnicity: <strong>Non-Hispanic</strong></h3>
+          <h3>Preferred Language: <strong>English</strong></h3>
+        </button>
+
+        <button ion-item (click)="openMember(false, {id: 2})">
+          <h3>Name: <strong>Valeria Gilson</strong></h3>
+          <h3>Relation: <strong>Spouse</strong></h3>
+          <h3>Birthday: <strong>2/20/1980</strong> <span margin-left> Age: <strong>37</strong></span></h3>
+          <h3>Race: <strong>White</strong></h3>
+          <h3>Ethnicity: <strong>Hispanic</strong></h3>
+          <h3>Preferred Language: <strong>Spanish</strong></h3>
+        </button>
+
+      </ion-list>
+    </div>
+  </div>
+
+
+</ion-content>
