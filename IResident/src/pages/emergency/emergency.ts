@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, AlertController, LoadingController } from 'ionic-angular';
 
 import { Geolocation } from '@ionic-native/geolocation';
 import { CallNumber } from '@ionic-native/call-number';
@@ -12,14 +12,34 @@ export class EmergencyPage {
 
     constructor(
         public navCtrl: NavController, 
+        public alertCtrl: AlertController,
+        public loadingCtrl: LoadingController,
         private geo: Geolocation,
         private callNumber: CallNumber) {
     }
 
+    showMsg(title, msg) {
+        let alert = this.alertCtrl.create({
+          title: title,
+          message: msg,
+          buttons: ['OK']
+        });
+        alert.present();
+      }
+
     shareLocation(){
+        const loading = this.loadingCtrl.create({
+            content: 'sharing location ...'
+        });
+
+        loading.present();
+
         this.geo.getCurrentPosition().then(pos => {
-            console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
-          });
+            let msg = '<p>Latitude: ' + pos.coords.latitude + '</br>Longitude: ' + pos.coords.longitude + '</p>';
+            
+            loading.dismiss();
+            this.showMsg('Location sent', msg);
+        });
     }
 
     callNr(phoneNumber){

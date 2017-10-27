@@ -87,63 +87,67 @@ export class ApisProvider {
             area: 'Bathroom'
         },
         {
-            id: 1,
+            id: 2,
             area: 'Ceiling'
         },
         {
-            id: 1,
+            id: 3,
             area: 'Doors'
         },
         {
-            id: 1,
+            id: 4,
             area: 'Electrical System'
         },
         {
-            id: 1,
+            id: 5,
             area: 'Floors'
         },
         {
-            id: 1,
+            id: 6,
             area: 'Hot Water Heater'
         },
         {
-            id: 1,
+            id: 7,
             area: 'HVAC System'
         },
         {
-            id: 1,
+            id: 8,
             area: 'Lighting'
         },
         {
-            id: 1,
+            id: 9,
+            area: 'Kitchen'
+        }, 
+        {
+            id: 10,
             area: 'Laundry Area (Room) D'
         },
         {
-            id: 1,
+            id: 11,
             area: 'Outlets/Switches'
         },
         {
-            id: 1,
+            id: 12,
             area: 'Patio/Porch/Balcony'
         },
         {
-            id: 1,
+            id: 13,
             area: 'Smoke Detector'
         },
         {
-            id: 1,
+            id: 14,
             area: 'Stairs'
         },
         {
-            id: 1,
+            id: 15,
             area: 'Walls'
         },
         {
-            id: 1,
+            id: 16,
             area: 'Windows'
         },
         {
-            id: 1,
+            id: 17,
             area: 'Health & Safety'
         },
     ];

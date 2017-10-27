@@ -16,19 +16,23 @@
 <ion-content>
         
     <ion-list inset>
-        <ion-list-header>
-            <p ion-text>{{ workorder.name }} Info</p>    
-        </ion-list-header>
 
         <ion-item>
-            <ion-label><h4 style="font-weight: bold;">Name</h4></ion-label>
-            <ion-input [(ngModel)]="workorder.name"></ion-input>
+            <ion-label color="primary">Area</ion-label>
+            <ion-input [(ngModel)]="workorder.area" readonly></ion-input>
+            <button ion-button clear icon-only item-end (click)="showAreas()">
+                <ion-icon name="arrow-dropdown"></ion-icon>
+            </button>
+        </ion-item>
+        <ion-item>
+            <ion-label color="primary"><h4 style="font-weight: bold;">Job</h4></ion-label>
+            <ion-input [(ngModel)]="workorder.job"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label color="primary"><h4 style="font-weight: bold;">Job Notes</h4></ion-label>
+            <ion-textarea [(ngModel)]="workorder.notes"></ion-textarea>
         </ion-item>
 
-        <ion-item *ngIf="workorder.type === 'Emergency' || workorder.infoType === 'members'">
-            <ion-label><h4 style="font-weight: bold;">Relation</h4></ion-label>
-            <ion-input [(ngModel)]="workorder.relation"></ion-input>
-        </ion-item>
 
     </ion-list>
         
