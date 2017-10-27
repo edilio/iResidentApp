@@ -1,83 +1,82 @@
 <ion-header>
-  <ion-navbar color="primary">
-    <ion-title>Family</ion-title>
-  </ion-navbar>
+    <ion-navbar color="primary">
+        <ion-title>Family</ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content>
   <ion-segment [(ngModel)]="infoType" padding>
-     <ion-segment-button value="contacts">
-       Contacts
-     </ion-segment-button>
-     <ion-segment-button value="members">
-       Members
-     </ion-segment-button>
+        <ion-segment-button value="contacts">
+            Contacts
+        </ion-segment-button>
+        <ion-segment-button value="members">
+            Members
+        </ion-segment-button>
    </ion-segment>
 
 
    <div [ngSwitch]="infoType" style="margin-top:-10px">
 
-     <div *ngSwitchCase="'contacts'">
-          <ion-card>
-            <ion-card-content>
-              <ion-item>
-                <ion-thumbnail item-start>
-                  <img [src]="resident.photo">
-                </ion-thumbnail>
+        <div *ngSwitchCase="'contacts'">
+            <ion-card>
+                <ion-card-content>
+                <ion-item>
+                    <ion-thumbnail item-start>
+                    <img [src]="resident.photo">
+                    </ion-thumbnail>
 
-                <h2>{{ resident.name }}</h2>
-                <h3>{{ resident.address }}</h3>
-                <h3>{{ resident.cityStateZip }}</h3>
-              </ion-item>
+                    <h2>{{ resident.name }}</h2>
+                    <h3>{{ resident.address }}</h3>
+                    <h3>{{ resident.cityStateZip }}</h3>
+                </ion-item>
 
-            </ion-card-content>
-          </ion-card>
+                </ion-card-content>
+            </ion-card>
 
-          <ion-list no-border>
+            <ion-list no-border>
 
-            <ion-list-header>
-              Contact Information
-              <button ion-button icon-only item-right (click)="openContact(true)" margin-right>
-                <ion-icon ion-text name="add-circle"></ion-icon>
-              </button>
-            </ion-list-header>
+                <ion-list-header>
+                    Contacts Information
+                    <button ion-button icon-only item-right (click)="openContact(true)" margin-right>
+                        <ion-icon ion-text name="add-circle"></ion-icon>
+                    </button>
+                </ion-list-header>
 
-            <ion-item *ngFor="let item of contacts">
-              <ion-icon name='contact' item-start></ion-icon>
-              <h2>{{ item.type }}</h2>
-              <h3 *ngIf="item.type === 'Emergency'">Name: {{ item.name }}</h3>
-              <h3 *ngIf="item.type === 'Emergency'">Relation: {{ item.relation }}</h3>
-              <h3>Email: {{ item.email }}</h3>
-              <h3>Phone: {{ item.phone }}</h3>
-              <button ion-button clear item-end (click)="openContact(false, item)">Edit</button>
-            </ion-item>
+                <ion-item *ngFor="let item of contacts">
+                    <ion-icon name='person' item-start></ion-icon>
+                    <h2>{{ item.type }}</h2>
+                    <h3 *ngIf="item.type === 'Emergency'">Name: {{ item.name }}</h3>
+                    <h3 *ngIf="item.type === 'Emergency'">Relation: {{ item.relation }}</h3>
+                    <h3>Email: {{ item.email }}</h3>
+                    <h3>Phone: {{ item.phone }}</h3>
+                    <button ion-button clear item-end (click)="openContact(false, item)">Edit</button>
+                </ion-item>
 
-          </ion-list>
+            </ion-list>
+
+        </div>
+
+        <div *ngSwitchCase="'members'">
+            <ion-list no-border>
+                <ion-list-header>
+                    Members Info
+                <button ion-button icon-only item-right (click)="openMember(true, {id: 0})" margin-right>
+                    <ion-icon ion-text name="add-circle"></ion-icon>
+                </button>
+                </ion-list-header>
+
+                <button ion-item *ngFor="let item of members" (click)="openMember(false, item)">
+                    <h3>Name: <strong>{{ item.name }}</strong></h3>
+                    <h3>Relation: <strong>{{ item.relation }}</strong></h3>
+                    <h3>Birthday: <strong>{{ item.birthday }}</strong> <span margin-left> Age: <strong>56</strong></span></h3>
+                    <h3>Race: <strong>{{ item.race }}</strong></h3>
+                    <h3>Ethnicity: <strong>{{ item.ethnicity }}</strong></h3>
+                    <h3>Preferred Language: <strong>{{ item.language }}</strong></h3>
+                </button>
+
+            </ion-list>
+        </div>
 
     </div>
-
-    <div *ngSwitchCase="'members'">
-      <ion-list no-border>
-
-        <ion-list-header>
-          Members Info
-          <button ion-button icon-only item-right (click)="openMember(true, {id: 0})" margin-right>
-            <ion-icon ion-text name="add-circle"></ion-icon>
-          </button>
-        </ion-list-header>
-
-        <button ion-item *ngFor="let item of members" (click)="openMember(false, item)">
-          <h3>Name: <strong>{{ item.name }}</strong></h3>
-          <h3>Relation: <strong>{{ item.relation }}</strong></h3>
-          <h3>Birthday: <strong>{{ item.birthday }}</strong> <span margin-left> Age: <strong>56</strong></span></h3>
-          <h3>Race: <strong>{{ item.race }}</strong></h3>
-          <h3>Ethnicity: <strong>{{ item.ethnicity }}</strong></h3>
-          <h3>Preferred Language: <strong>{{ item.language }}</strong></h3>
-        </button>
-
-      </ion-list>
-    </div>
-  </div>
-
 
 </ion-content>

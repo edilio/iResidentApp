@@ -1,0 +1,35 @@
+
+<ion-header>
+
+    <ion-navbar color="primary" hideBackButton="true">
+            <ion-buttons start>
+                <button ion-button icon-only (click)="goBack()" margin-left>
+                    <ion-icon name="arrow-dropleft-circle"></ion-icon>
+                </button>
+            </ion-buttons>
+        <ion-title> {{ workorder.id ? 'Workorder#: ' + workorder.id : 'New workorder'}}</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+        
+    <ion-list inset>
+        <ion-list-header>
+            <p ion-text>{{ workorder.name }} Info</p>    
+        </ion-list-header>
+
+        <ion-item>
+            <ion-label><h4 style="font-weight: bold;">Name</h4></ion-label>
+            <ion-input [(ngModel)]="workorder.name"></ion-input>
+        </ion-item>
+
+        <ion-item *ngIf="workorder.type === 'Emergency' || workorder.infoType === 'members'">
+            <ion-label><h4 style="font-weight: bold;">Relation</h4></ion-label>
+            <ion-input [(ngModel)]="workorder.relation"></ion-input>
+        </ion-item>
+
+    </ion-list>
+        
+</ion-content>

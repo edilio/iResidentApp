@@ -1,7 +1,7 @@
 <ion-header>
-  <ion-navbar color="primary">
-    <ion-title>Emergency</ion-title>
-  </ion-navbar>
+    <ion-navbar color="primary">
+        <ion-title>Emergency</ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content class="card-background-page" padding>
@@ -14,7 +14,7 @@
 
     <ion-card>
         <ion-card-header>
-            Help Numbers
+            Non Emergency Numbers
         </ion-card-header>
           
         <ion-list>
@@ -36,8 +36,8 @@
                 <h3>890-098-8877</h3>
             </button>
         
-            <button ion-item color="secondary" detail-none>
-                <ion-icon name="locate" item-start></ion-icon>
+            <button ion-item color="secondary" detail-none (click)="shareLocation()">
+                <ion-icon name="pin" item-start></ion-icon>
                 <h2>Share your location</h2>
                 <h3>with property management</h3>
             </button>

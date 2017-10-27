@@ -1,9 +1,26 @@
 <ion-header>
-  <ion-navbar color="primary">
-    <ion-title>Work Orders</ion-title>
-  </ion-navbar>
+    <ion-navbar color="primary">
+        <ion-title>Work Orders</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="openWorkOrder()" margin-right>
+                <ion-icon name="add-circle"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+
+    <ion-list no-border inset>
+            
+        <ion-item *ngFor="let item of workorders" (click)="openWorkOrder(item)">
+            <ion-icon [name]="item.status === 'pending' ? 'timer' : 'checkmark-circle'" item-start [color]="item.status === 'pending' ? 'warning' : 'secondary'"></ion-icon>
+            <h3><strong>WO#:</strong> {{ item.id }}</h3>
+            <h3><strong>Job:</strong> {{ item.job }}</h3>
+            <h3><strong>Date:</strong> {{ item.wo_date }}</h3>
+            <!-- <button ion-button clear item-end (click)="openContact(false, item)">Edit</button> -->
+        </ion-item>
+
+    </ion-list>
   
 </ion-content>
